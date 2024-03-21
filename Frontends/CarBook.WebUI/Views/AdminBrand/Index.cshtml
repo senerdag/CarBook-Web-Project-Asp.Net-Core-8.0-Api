@@ -1,0 +1,61 @@
+﻿@model List<ResultBrandDto>
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/AdminLayout/Index.cshtml";
+    int count = 0;
+}
+
+<div class="page-content">
+    <div class="container-fluid">
+
+        <!-- start page title -->
+        <div class="row">
+            <div class="col-xl-12">
+                <div class="card">
+                    <div class="card-body">
+                        <h4 class="card-title">Car Lists</h4>
+                        <p class="card-subtitle mb-4">
+                            Create, Delete, Update, Search and for List
+                        </p>
+                        <div class="table-responsive">
+                            <table class="table mb-0">
+                                <thead>
+                                    <tr>
+                                        <th>#</th>
+                                        <th>Brand Name</th>
+                                        <th>Delete</th>
+                                        <th>Update</th>
+                                        <th>Cars Belonging To Brand</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    @foreach (var item in Model)
+                                    {
+                                        count++;
+                                        <tr>
+                                            <th scope="row">@count</th>
+                                            <td>@item.Name</td>
+                                            <td><a href="/AdminBrand/DeleteBrand/@item.BrandId" class="btn btn-outline-danger">Delete</a></td>
+                                            <td><a href="/AdminBrand/UpdateBrand/@item.BrandId" class="btn btn-outline-success">Update</a></td>
+                                            <td><a href="/AdminBrand/UpdateBrand/@item.BrandId" class="btn btn-outline-secondary">Cars Belonging To Brand</a></td>
+                                        </tr>
+                                    }
+                                </tbody>
+                            </table>
+                            <a href="/AdminBrand/CreateBrand/" class="btn btn-outline-primary">Create</a>
+                        </div>
+
+                    </div>
+                    <!-- end card-body-->
+                </div>
+                <!-- end card -->
+
+            </div>
+            <!-- end col -->
+
+        </div>
+        <!-- end page title -->
+
+    </div> <!-- container-fluid -->
+</div>
+

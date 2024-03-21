@@ -1,0 +1,60 @@
+﻿@model List<ResultFooterAddressDto>
+
+
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/AdminLayout/Index.cshtml";
+}
+
+<div class="page-content">
+    <div class="container-fluid">
+
+        <!-- start page title -->
+        <div class="row">
+            <div class="col-xl-12">
+                <div class="card">
+                    <div class="card-body">
+                        <h4 class="card-title">FooterAddress Area</h4>
+                        <p class="card-subtitle mb-4">
+                            **Please add just one entity**
+                        </p>
+                        <div class="table-responsive">
+                            <table class="table mb-0">
+                                <thead>
+                                    <tr>
+                                        <th>Address</th>
+                                        <th>Phone</th>
+                                        <th>Email</th>
+                                        <th>Description</th>
+                                        <th>Delete</th>
+                                        <th>Update</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    @foreach (var item in Model)
+                                    {
+
+                                        <tr>
+                                            <td>@item.Adress</td>
+                                            <td>@item.Phone</td>
+                                            <td>@item.Email</td>
+                                            <td>@item.Description</td>
+                                            <td><a href="/Admin/AdminFooterAddress/DeleteFooterAddress/@item.FooterAdressId" class="btn btn-outline-danger">Delete</a></td>
+                                            <td><a href="/Admin/AdminFooterAddress/UpdateFooterAddress/@item.FooterAdressId" class="btn btn-outline-success">Update</a></td>
+                                        </tr>
+                                    }
+                                </tbody>
+                            </table>
+                            <a href="/Admin/AdminFooterAddress/CreateFooterAddress/" class="btn btn-outline-primary">Create New FooterAddress</a>
+                        </div>
+
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+
+    </div> <!-- container-fluid -->
+</div>
+

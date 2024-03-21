@@ -1,0 +1,49 @@
+﻿@model CreateTestimonialDto
+
+@{
+    ViewData["Title"] = "CreateTestimonial";
+    Layout = "~/Views/AdminLayout/Index.cshtml";
+}
+
+<div class="page-content">
+    <div class="container-fluid">
+
+        <div class="row">
+            <div class="col-xl-12">
+
+                <div class="card">
+                    <div class="card-body">
+
+                        <h4 class="card-title">Create New Testimonial</h4>
+                        <p class="card-subtitle mb-4">**Fill the all blanks**</p>
+
+                        <form method="post">
+                            <div class="form-group">
+                                <label for="exampleInputName">Testimonial Name</label>
+                                <input type="text" class="form-control" id="exampleInputName" asp-for="Name" placeholder="Name">
+                            </div>
+                            <div class="form-group">
+                                <label for="exampleInputTitle">Testimonial Title</label>
+                                <input type="text" class="form-control" id="exampleInputTitle" asp-for="Title" placeholder="Title">
+                            </div>
+                            <div class="form-group">
+                                <label for="exampleInputComment">Testimonial Comment</label>
+                                <textarea rows="5" class="form-control" asp-for="Comment" placeholder="Comment"> </textarea>
+                            </div>
+                            <div class="form-group">
+                                <label for="exampleInputImageUrl">Image Url</label>
+                                <input type="text" class="form-control" id="exampleInputImageUrl" asp-for="ImageUrl" placeholder="Image Url">
+                            </div>
+                            <button type="submit" class="btn btn-primary waves-effect waves-light">Save Testimonial</button>
+                        </form>
+
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+    </div>
+
+</div>
+

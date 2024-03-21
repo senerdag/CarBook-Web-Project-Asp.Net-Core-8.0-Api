@@ -1,0 +1,51 @@
+﻿@model List<ResultCommentDto>
+
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/AdminLayout/Index.cshtml";
+    int count = 0;
+}
+
+<div class="page-content">
+    <div class="container-fluid">
+
+        <!-- start page title -->
+        <div class="row">
+            <div class="col-xl-12">
+                <div class="card">
+                    <div class="card-body">
+                        <h4 class="card-title">Comment List - BlogID: @ViewBag.v</h4>
+                        <p class="card-subtitle mb-4">
+                            View all comment for each Blog.
+                        </p>
+                        @foreach(var item in Model)
+                        {
+                            count++;
+                            <div class="col-md-12">
+                                <div class="card">
+                                    <h5 class="card-header">Comment @count</h5>
+                                    <div class="card-body">
+                                        <h4 class="card-title">@item.Name</h4>
+                                        <p class="card-text">
+                                            @item.Description
+                                        </p>
+                                        <a href="#" class="btn btn-danger waves-effect waves-light">Delete Comment</a>
+                                    </div>
+                                </div>
+                            </div>
+                        }
+
+                    </div>
+
+                </div>
+
+
+            </div>
+
+
+        </div>
+
+
+    </div>
+</div>
+

@@ -1,0 +1,66 @@
+﻿@model List<ResulAllBlogsWithAuthorDto>
+
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/AdminLayout/Index.cshtml";
+    int count = 0;
+}
+
+<div class="page-content">
+    <div class="container-fluid">
+
+        <!-- start page title -->
+        <div class="row">
+            <div class="col-xl-12">
+                <div class="card">
+                    <div class="card-body">
+                        <h4 class="card-title">Blog List</h4>
+                        <p class="card-subtitle mb-4">
+                            Adding a new blog is not done by the admin. Each author can add his own blog. To do this, log in to the system as an author.
+                        </p>
+                        <div class="table-responsive">
+                            <table class="table mb-0">
+                                <thead>
+                                    <tr>
+                                        <th>#</th>
+                                        <th>Title</th>
+                                        <th>Author</th>
+                                        <th>Category</th>
+                                        <th>Created Date</th>
+                                        <th>Delete</th>
+                                        <th>Go To Blog</th>
+                                        <th>Comments on the blog</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    @foreach (var item in Model)
+                                    {
+                                        count++;
+                                        <tr>
+                                            <td>@count</td>
+                                            <td>@item.Title</td>
+                                            <td>@item.AuthorName</td>
+                                            <td>@item.CategoryId</td>
+                                            <td>@item.CreatedDate</td>
+                                            <td><a href="/Admin/AdminBlog/DeleteBlog/@item.BlogId" class="btn btn-outline-danger">Delete</a></td>
+                                            <td><a href="/Blog/BlogDetail/@item.BlogId" class="btn btn-outline-secondary">Go To Blog</a></td>
+                                            <td><a href="/Admin/AdminComment/Index/@item.BlogId" class="btn btn-outline-dark">Comments</a></td>
+                                        </tr>
+                                    }
+                                </tbody>
+                            </table>
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+            </div>
+
+
+        </div>
+
+
+    </div> 
+</div>

@@ -1,0 +1,74 @@
+﻿@model UpdateCarDto
+@{
+    ViewData["Title"] = "UpdateCar";
+    Layout = "~/Views/AdminLayout/Index.cshtml";
+}
+
+
+<div class="page-content">
+    <div class="container-fluid">
+
+        <div class="row">
+            <div class="col-xl-12">
+
+                <div class="card">
+                    <div class="card-body">
+
+                        <h4 class="card-title">Update Car</h4>
+                        <p class="card-subtitle mb-4">**Fill the all blanks**</p>
+
+                        <form method="post">
+                            <input type="hidden" asp-for="CarId" />
+                            <div class="form-group">
+                                <label for="exampleInputBrand">Brand</label>
+                                @Html.DropDownListFor(x => x.BrandId, (List<SelectListItem>)ViewBag.BrandValues, new { @class = "form-control" })
+                            </div>
+                            <div class="form-group">
+                                <label for="exampleInputModel">Model</label>
+                                <input type="text" class="form-control" id="exampleInputModel" asp-for="Model" placeholder="Model">
+                            </div>
+                            <div class="form-group">
+                                <label for="exampleInputCoverImageUrl">Cover Image Url</label>
+                                <input type="text" class="form-control" id="exampleInputCoverImageUrl" asp-for="CoverImageUrl" placeholder="Cover Image Url">
+                            </div>
+                            <div class="form-group">
+                                <label for="exampleInputKm">Km</label>
+                                <input type="text" class="form-control" id="exampleInputKm" asp-for="Km" placeholder="Km">
+                            </div>
+                            <div class="form-group">
+                                <label for="exampleInputTransmission">Transmission</label>
+                                <input type="text" class="form-control" id="exampleInputTransmission" asp-for="Transmission" placeholder="Transmission">
+                            </div>
+                            <div class="form-group">
+                                <label for="exampleInputSeat">Seat</label>
+                                <input type="number" class="form-control" id="exampleInputSeat" asp-for="Seat" placeholder="Seat">
+                            </div>
+                            <div class="form-group">
+                                <label for="exampleInputLuggage">Luggage</label>
+                                <input type="number" class="form-control" id="exampleInputLuggage" asp-for="Luggage" placeholder="Luggage">
+                            </div>
+                            <div class="form-group">
+                                <label for="exampleInputFuel">Fuel</label>
+                                <input type="text" class="form-control" id="exampleInputFuel" asp-for="Fuel" placeholder="Fuel">
+                            </div>
+                            <div class="form-group">
+                                <label for="exampleInputBigImageUrl">Big Image Url</label>
+                                <input type="text" class="form-control" id="exampleInputBigImageUrl" asp-for="BigImageUrl" placeholder="Big Image Url">
+                            </div>
+
+                            <button type="submit" class="btn btn-primary waves-effect waves-light">Save</button>
+                        </form>
+
+                    </div> <!-- end card-body-->
+                </div>
+
+            </div>
+            <!-- end card-body-->
+        </div>
+        <!-- end card -->
+
+    </div>
+    <!-- end col -->
+
+</div>
+<!-- end page title -->

@@ -20,7 +20,7 @@ namespace CarBook.Persistence.Context
         public DbSet<Car> Cars { get; set; }
         public DbSet<CarDescription> CarDescriptions { get; set; }
         public DbSet<CarFeature> CarFeatures { get; set; }
-        public DbSet<CarPricing> CarPricings  { get; set; }
+        public DbSet<CarPricing> CarPricings { get; set; }
         public DbSet<Category> Categories { get; set; }
         public DbSet<Contact> Contacts { get; set; }
         public DbSet<Feature> Features { get; set; }
@@ -32,7 +32,24 @@ namespace CarBook.Persistence.Context
         public DbSet<Testimonial> Testimonials { get; set; }
         public DbSet<Author> Authors { get; set; }
         public DbSet<Blog> Blogs { get; set; }
-      
+        public DbSet<TagCloud> TagClouds { get; set; }
+        public DbSet<Comment> Comments { get; set; }
+        public DbSet<RentACar> RentACars { get; set; }
+        public DbSet<Reservation> Reservations { get; set; }
+        protected override void OnModelCreating(ModelBuilder modelBuilder)
+        {
+            modelBuilder.Entity<Reservation>()
+                .HasOne(x => x.PickUpLocation)
+                .WithMany(y => y.PickUpReservation)
+                .HasForeignKey(z => z.PickUpLocationId)
+                .OnDelete(DeleteBehavior.ClientSetNull);
+            modelBuilder.Entity<Reservation>()
+                .HasOne(x => x.DropOffLocation)
+                .WithMany(y => y.DropOffReservation)
+                .HasForeignKey(z => z.DropOffLocationId)
+                .OnDelete(DeleteBehavior.ClientSetNull);
+        }
+
 
 
     }
